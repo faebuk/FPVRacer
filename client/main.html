@@ -4,13 +4,105 @@
   <title>Starter Template - Materialize</title>
 </head>
 <body>
-  
- 
+
+
 
 </body>
 
+<template name="signup">
+  <div class="row">
+    
+    <div class="col s12 offset-m2 m8 offset-l3 l6">
+
+      <div class="card-panel ">
+        <div class="container">
+
+          <div class="section content center-align">
+            <form class="row">
+              <div class="input-field">
+                <input id="username" type="text" class="validate">
+                <label for="username" data-error="wrong" data-success="right">Username</label>
+              </div>
+              <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password" data-error="wrong" data-success="right">Passwort</label>
+              </div>
+              <div class="input-field">
+                <input id="repassword" type="password" class="validate">
+                <label for="repassword" data-error="wrong" data-success="right">Repeat Passwort</label>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Sign up</button>
+            </form>
+          </div>
+
+          <div class="section center-align">
+            <p>- OR -</p>
+          </div>
+
+          <div class="section center-align">
+            <div class="row">
+              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Sign up with Facebook</a>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Sign up with Twitter</a>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Sign up with Google+</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
 <template name="login">
-<p>Login Page</p>
+  <div class="row">
+    
+    <div class="col s12 offset-m2 m8 offset-l3 l6">
+
+      <div class="card-panel ">
+        <div class="container">
+
+          <div class="section content center-align">
+            <form class="row">
+              <div class="input-field">
+                <input id="username" type="text" class="validate">
+                <label for="username" data-error="wrong" data-success="right">Username</label>
+              </div>
+              <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password" data-error="wrong" data-success="right">Passwort</label>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+            </form>
+          </div>
+
+          <div class="section center-align">
+            <p>- OR -</p>
+          </div>
+
+          <div class="section center-align">
+            <div class="row">
+              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Login with Facebook</a>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Login with Twitter</a>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Login with Google+</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </template>
 
 <template name="home">
@@ -62,7 +154,7 @@
 </template>
 
 <template name="footer">
-  <footer class="page-footer orange">
+  <footer class="page-footer">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -93,17 +185,17 @@
     </div>
     <div class="footer-copyright">
       <div class="container">
-      Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
       </div>
     </div>
   </footer>
 </template>
 
 <template name="navigation">
-  <nav class="light-blue lighten-1" role="navigation">
+  <nav class="green accent-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">FPV Racer</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Sign up</a></li>
+        <li><a href="/signup">Sign up</a></li>
         <li><a href="/login">Login</a></li>
       </ul>
 

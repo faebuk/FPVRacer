@@ -1,0 +1,11 @@
+@media only screen and (min-width: 993px){
+	.row .col.l6 {
+	    width: 50%;
+	}
+}
+
+@media only screen and (min-width: 993px){
+	.row .col.offset-l3 {
+	    margin-left: 25%;
+	}
+}

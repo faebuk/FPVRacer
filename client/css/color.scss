@@ -1,0 +1,153 @@
+/*
+# COLOR DECLARATIONS
+### WHITE
+### BLACK
+### GREEN
+### TRANSPARENT
+*/
+
+@import "helpers";
+
+/*
+# COLOR DECLARATIONS
+*/
+$white: #FFFFFF !important;
+$black: #000000 !important;
+$gray: #444444 !important;
+$gray-light: #DDDDDD !important;
+$gray-lighter: #F3F3F3 !important;
+$gray-lightest: #FCFCFC !important;
+$green: #00C853 !important;
+$green-light: #E8F5E9 !important;
+$red: rgba(244, 67, 54, 0.7) !important;
+$red-light: rgba(244, 67, 54, 0.4) !important;
+$trans: transparent !important;
+
+$basecolor: $green;
+$basecolor-light: $green-light;
+
+/*
+# BASECOLOR
+*/
+nav.top-nav,
+footer,
+.btn,
+.btn-large,
+.collapsible-header,
+.tabs .indicator,
+span.badge.new {
+  background-color: $basecolor;
+}
+a.item-link,
+p a,
+textarea:focus,
+.tabs li.tab a {
+  color: $basecolor;
+}
+input {
+  &[type=text]:focus,
+  &[type=password]:focus,
+  &[type=email]:focus,
+  &[type=date]:focus {
+    color: $basecolor;
+  }
+}
+.input-field {
+  input[type=text]:focus + label,
+  input[type=password]:focus + label,
+  input[type=email]:focus + label,
+  input[type=date]:focus + label,
+  textarea:focus + label,
+  .prefix.active {
+    color: $basecolor;
+  }
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus,
+input[type=date]:focus,
+textarea:focus {
+  border-color: $basecolor;
+  -webkit-box-shadow: 0 1px 0 0 $basecolor;
+  -moz-box-shadow: 0 1px 0 0 $basecolor;
+  box-shadow: 0 1px 0 0 $basecolor;
+}
+li.average {
+  background-color: $basecolor-light;
+}
+.tabs li.tab a:hover {
+  color: $basecolor-light;
+}
+
+/*
+# WHITE
+*/
+ul.side-nav li.logo:hover {
+  background-color: $white;
+}
+footer,
+footer a,
+a.button-collapse.top-nav {
+  color: $white;
+}
+.collapsible-header {
+  &,
+  span.badge,
+  i {
+    color: $white;
+  }
+}
+
+/*
+# GRAY
+*/
+ul.side-nav {
+  .collapsible i[class^="mdi"],
+  .collapsible-header {
+    color: $gray;
+  }
+}
+ul.side-nav {
+  li {
+    a {
+      &:hover {
+        background-color: $gray-lighter;
+      }
+    }
+  }
+}
+
+ul.side-nav .collapsible-body {
+  box-shadow: 10px 10px 20px #F3F3F3 inset;
+}
+
+/*
+# RED
+*/
+.btn {
+  &.btn-cancel {
+    background-color: $red;
+  }
+}
+.item-remove {
+  color: $red;
+}
+
+/*
+# TRANSPARENT
+*/
+ul.side-nav {
+  &.full,
+  &.fixed {
+    li {
+      &:hover,
+      &.active,
+      &.logo a {
+        background-color: $trans;
+      }
+    }
+  }
+  .collapsible-header {
+    background-color: $trans;
+  }
+}
