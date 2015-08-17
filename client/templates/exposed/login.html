@@ -1,0 +1,45 @@
+<template name="login">
+  <div class="row">
+    
+    <div class="col s12 offset-m2 m8 offset-l3 l6">
+
+      <div class="card-panel ">
+        <div class="container">
+
+          <div class="section content center-align">
+            <form class="row">
+              <div class="input-field">
+                <input id="username" type="text" class="validate">
+                <label for="username" data-error="wrong" data-success="right">Username</label>
+              </div>
+              <div class="input-field">
+                <input id="password" type="password" class="validate">
+                <label for="password" data-error="wrong" data-success="right">Passwort</label>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Login</button>
+            </form>
+          </div>
+
+          <div class="section center-align">
+            <p>- OR -</p>
+          </div>
+
+          <div class="section center-align">
+            <div class="row">
+              <a class="waves-effect waves-light btn facebook-login" style="background-color: #3b5998 !important;"><i class="material-icons left mdi-social-group"></i>Login with Facebook</a>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn twitter-login" style="background-color: #55acee !important;"><i class="material-icons left mdi-social-group"></i>Login with Twitter</a>
+            </div>
+            <div class="row">
+              <a class="waves-effect waves-light btn google-login" style="background-color: #dd4b39 !important;"><i class="material-icons left mdi-social-group"></i>Login with Google</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</template>
