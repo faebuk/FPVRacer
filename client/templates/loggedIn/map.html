@@ -1,0 +1,27 @@
+<template name="map">
+  <div class="container">
+    <div class="row">
+      <h1>Map</h1>
+    </div>
+
+    <div class="row">
+      <p>Hilfe den anderen dich zu finden und mit dir zu fliegen! Trage dein Wohnort und Flugort ein.</p>
+      <div class="col">
+        <button class="light-green accent-3 waves-effect waves-light btn" {{flyDisabled}}>
+          <input class="with-gap" value="fly-location" name="type" type="radio" id="fly-location"/>
+          <label class="white-text" for="fly-location">Flugort {{flyCount}}/6</label>
+        </button>
+      </div>
+      <div class="col">
+        <button class="light-blue darken-1 waves-effect waves-light btn" {{homeDisabled}}>
+          <input class="with-gap" value="home-location" name="type" type="radio" id="home-location"/>
+          <label class="white-text" for="home-location">Standort {{homeCount}}/2</label>
+        </button>
+      </div>
+
+    </div>
+    <div class="row map-container">
+      {{> googleMap name="map" options=mapOptions}}
+    </div>
+  </div>
+</template>

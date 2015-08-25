@@ -9,17 +9,21 @@
 
           <div class="section content center-align">
             <form class="row">
-              <div class="input-field">
-                <input id="username" type="text" class="validate">
-                <label for="username" data-error="wrong" data-success="right">Username</label>
+              <div class="input-field col s12">
+                <input id="username" name="username" type="text" class="validate" required>
+                <label for="username">Username</label>
               </div>
-              <div class="input-field">
-                <input id="password" type="password" class="validate">
-                <label for="password" data-error="wrong" data-success="right">Passwort</label>
+              <div class="input-field col s12">
+                <input id="email" name="email" type="email" class="validate" required>
+                <label for="email">E-Mail</label>
               </div>
-              <div class="input-field">
-                <input id="repassword" type="password" class="validate">
-                <label for="repassword" data-error="wrong" data-success="right">Repeat Passwort</label>
+              <div class="input-field col s12">
+                <input id="password" name="password" type="password" class="validate" required>
+                <label for="password">Passwort</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="repassword" name="repassword" type="password" class="validate" required>
+                <label for="repassword">Repeat Passwort</label>
               </div>
               <button class="btn waves-effect waves-light" type="submit" name="action">Sign up</button>
             </form>
@@ -29,17 +33,7 @@
             <p>- OR -</p>
           </div>
 
-          <div class="section center-align">
-            <div class="row">
-              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Sign up with Facebook</a>
-            </div>
-            <div class="row">
-              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Sign up with Twitter</a>
-            </div>
-            <div class="row">
-              <a class="waves-effect waves-light btn"><i class="material-icons left mdi-social-group"></i>Sign up with Google+</a>
-            </div>
-          </div>
+          {{> loginbuttons}}
 
         </div>
       </div>

@@ -1,9 +1,14 @@
 <template name="navigation">
-  <nav class="green accent-4" role="navigation">
+  <nav class="" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">FPV Racer</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="/signup">Sign up</a></li>
-        <li><a href="/login">Login</a></li>
+        <li><a href="/map">Map</a></li>
+        {{#if currentUser}}
+          <li><a href="/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/signup">Sign up</a></li>
+          <li><a href="/login">Login</a></li>
+        {{/if}}
       </ul>
 
       <ul id="nav-mobile" class="side-nav">

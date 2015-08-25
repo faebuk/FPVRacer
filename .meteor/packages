@@ -14,3 +14,8 @@ accounts-facebook
 service-configuration
 accounts-twitter
 accounts-google
+audit-argument-checks
+accounts-password
+dburles:google-maps
+kadira:debug
+meteorhacks:kadira

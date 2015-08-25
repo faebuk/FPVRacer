@@ -1,29 +1,21 @@
 Template.login.events({
-  'click .facebook-login': function(){
-    
-    Meteor.loginWithFacebook({}, function(error){
-      if(error)
-        Materialize.toast(error.reason);
-      else
-        Materialize.toast('Erfolgreich eingeloggt');
-    });
-  },
-  'click .twitter-login': function(){
-    
-    Meteor.loginWithTwitter({}, function(error){
-      if(error)
-        Materialize.toast(error.reason);
-      else
-        Materialize.toast('Erfolgreich eingeloggt');
-    });
-  },
-  'click .google-login': function(){
-    
-    Meteor.loginWithGoogle({}, function(error){
-      if(error)
-        Materialize.toast(error.reason);
-      else
-        Materialize.toast('Erfolgreich eingeloggt');
-    });
-  }
-})
+	'submit form': function(e){
+		e.preventDefault();
+
+		var username = $(e.target).find('[name=username]').val();
+		var password = $(e.target).find('[name=password]').val();
+
+		var redirect;
+		redirect = Session.get("redirectAfterLogin");
+		if(!redirect){
+			Session.set("redirectAfterLogin", "home");
+		}
+
+		Meteor.loginWithPassword(username, password, function(error){
+			if(error)
+				Materialize.toast(error.reason, 4000);
+			else
+				Materialize.toast('Erfolgreich eingeloggt.', 4000);
+		});
+	}
+});

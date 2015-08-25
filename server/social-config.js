@@ -14,7 +14,7 @@ ServiceConfiguration.configurations.remove({
 
 ServiceConfiguration.configurations.insert({
     service: 'twitter',
-    appId: Meteor.settings.twitterapikey,
+    consumerKey: Meteor.settings.twitterapikey,
     secret: Meteor.settings.twittersecret
 });
 
@@ -24,6 +24,6 @@ ServiceConfiguration.configurations.remove({
 
 ServiceConfiguration.configurations.insert({
     service: 'google',
-    appId: Meteor.settings.googleapikey,
+    clientId: Meteor.settings.googleapikey,
     secret: Meteor.settings.googlesecret
 });

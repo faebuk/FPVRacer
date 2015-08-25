@@ -23,16 +23,18 @@ $red: rgba(244, 67, 54, 0.7) !important;
 $red-light: rgba(244, 67, 54, 0.4) !important;
 $trans: transparent !important;
 
-$basecolor: $green;
-$basecolor-light: $green-light;
+$red: #d50000 !important;
+
+$basecolor: $red;
+$basecolor-light: $red-light;
 
 /*
 # BASECOLOR
 */
-nav.top-nav,
+nav, nav.top-nav,
 footer,
 .btn,
-.btn-large,
+/*.btn-large,*/
 .collapsible-header,
 .tabs .indicator,
 span.badge.new {
@@ -150,4 +152,26 @@ ul.side-nav {
   .collapsible-header {
     background-color: $trans;
   }
+}
+
+/* Unchecked styles */
+[type="radio"]:not(:checked) + label:before {
+  border: 2px solid $white;
+}
+[type="radio"]:not(:checked) + label:after {
+  border: 2px solid $white;
+}
+
+[type="radio"]:checked + label:after {
+  border: 2px solid $white;
+  background-color: $white;
+}
+
+/* Radio With gap */
+[type="radio"].with-gap:checked + label:before {
+  border: 2px solid $white;
+}
+[type="radio"].with-gap:checked + label:after {
+  border: 2px solid $white;
+  background-color: $white;
 }
