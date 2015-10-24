@@ -12,7 +12,13 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="/map">Map</a></li>
+        {{#if currentUser}}
+          <li><a href="/logout">Logout</a></li>
+        {{else}}
+          <li><a href="/signup">Sign up</a></li>
+          <li><a href="/login">Login</a></li>
+        {{/if}}
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </div>

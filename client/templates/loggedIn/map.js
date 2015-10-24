@@ -1,30 +1,41 @@
-Template.map.onCreated(function(){
+ Template.map.onCreated(function(){
   Session.set('selectedMarker', null);
+  var self = this;
+
+  this.infoView = new ReactiveVar();  
 
   GoogleMaps.ready('map', function(map) {
     // Add a marker to the map once it's ready
     google.maps.event.addListener(map.instance, 'click', function(event) {
       var selectedMarker = Session.get('selectedMarker');
+
       if(selectedMarker === "home-location" || selectedMarker === "fly-location"){
         var position = {
           lat: event.latLng.lat(),
           lng: event.latLng.lng()
         }
 
-        Meteor.call("addMarker", position, selectedMarker, function(error){
-          if(error)
-            Materialize.toast(error.reason, 4000);
-          else
-            Materialize.toast("Ort erfolgreich hinzugefügt.", 4000);
+        findGeoLocation(position.lat, position.lng, function(location){          
+          Meteor.call("addMarker", position, location, selectedMarker, function(error){
+            if(error)
+              Materialize.toast(error.reason, 4000);
+            else{
+              Materialize.toast("Ort erfolgreich hinzugefügt.", 4000);
+              $('#modal1').openModal();
+            }
+          });
         });
+       
       }else{
         Materialize.toast("Bitte zuerst Typ des Ortes auswählen", 4000);
       }
-    });   
+    }); 
 
     var markers = {};
 
-    var infoView = new google.maps.InfoWindow();    
+    self.infoView = new google.maps.InfoWindow({
+      maxWidth: 400
+    });    
 
     Markers.find().observe({
       added: function (document) {
@@ -63,20 +74,23 @@ Template.map.onCreated(function(){
             lat: event.latLng.lat(),
             lng: event.latLng.lng()
           }
-          
-          Meteor.call('updateMarkerLocation', marker.id, position, function(error){
-            if(error)
-              Materialize.toast(error.reason, 4000);
-            else
-              Materialize.toast("Ort erfolgreicht aktualisiert.", 4000);
-          })
+          findGeoLocation(position.lat, position.lng, function(location){          
+            Meteor.call('updateMarkerLocation', marker.id, position, location, function(error){
+              if(error)
+                Materialize.toast(error.reason, 4000);
+              else
+                Materialize.toast("Ort erfolgreicht aktualisiert.", 4000);
+            })
+          });
         });
 
         google.maps.event.addListener(marker, 'click', function(event) {
             Session.set("selectedInfoViewMarker", {markerId: document._id, userId: document.userId});
+            var infoView = self.infoView;
             var infoViewHTML = Blaze.toHTML(Template.mapInfoview);
             infoView.setContent(infoViewHTML);
-            infoView.open(map.instance,marker);
+            //infoView.open(map.instance,marker);
+            $('#modalMarker').openModal();
         })
 
         markers[document._id] = marker;
@@ -97,14 +111,6 @@ Template.map.events({
   'change input[name=type]': function(event, template){
     var element = template.find('input:radio[name=type]:checked');
     Session.set('selectedMarker', $(element).val());
-  },
-  'click .delete': function(){
-    Meteor.call("removeMarker", Session.get('selectedInfoViewMarker').markerId, function(error){
-      if(error)
-        Materialize.toast(error.reason, 4000);
-      else
-        Materialize.toast("Ort erfolgreich entfernt.", 4000);
-    });
   }
 });
 
@@ -119,7 +125,10 @@ Template.map.helpers({
       };
     }
   },
-
+  selectedMarker: function(){
+    if(Session.get('selectedInfoViewMarker'))
+      return Markers.findOne({_id: Session.get('selectedInfoViewMarker').markerId});
+  },
   homeCount: function(){
     return Markers.find({userId: Meteor.userId(), type: 'home-location'}).count();
   },
@@ -132,5 +141,11 @@ Template.map.helpers({
   },
   flyDisabled: function(){
     return (Markers.find({userId: Meteor.userId(), type: 'fly-location'}).count() >= 6) ? 'disabled' : ''
+  },
+  modalOptions: function(){
+    return {
+      title: 'Zusätzliche Informationen hinzufügen',
+      text: 'Du kannst nun Bilder oder Videos zu dem Standort hinzufügen.'
+    };
   }
 });

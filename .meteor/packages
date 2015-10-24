@@ -4,7 +4,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 autopublish
 insecure
 fourseven:scss
@@ -19,3 +18,19 @@ accounts-password
 dburles:google-maps
 kadira:debug
 meteorhacks:kadira
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
+meteortoys:allthings@2.1.0
+reactive-var

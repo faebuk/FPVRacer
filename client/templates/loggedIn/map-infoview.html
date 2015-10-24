@@ -1,5 +1,35 @@
 <template name="mapInfoview">
-  <p>{{name}}</p>
-  <a class="waves-effect waves-light btn delete"><i class="material-icons">delete</i></a>
+
+  <div style="width: 400px;" class="content">
+    {{#if flyLocation}}
+      <div>
+        <h5>{{geoLocation}}</h5>
+      </div>
+      <div>
+          {{#if fliesHere}}
+              <button name="flyHereNot" class="orange darken-1 waves-effect waves-light btn">Ich fliege nicht mehr hier!</button>
+          {{else}}
+            <button name="flyHere" class="orange darken-1 waves-effect waves-light btn">Ich fliege hier!</button>
+          {{/if}}
+      </div>
+      <div>
+        {{pilotsCount}} Personen fliegen hier.
+      </div>
+    {{else}}
+      <div>
+        <h4>{{name}}</h4>
+        <h5>{{geoLocation}}</h5>
+      </div>
+      <div>
+         <a href="{{profileUrl}}" class="orange darken-1 waves-effect waves-light btn">Profil</a>
+      </div>
+    {{/if}}
+    
+    {{#if ownsMarker}}
+    <div style="padding-top: 10px">
+      <a class="waves-effect waves-light btn delete"><i class="material-icons">delete</i></a>
+    </div>
+    {{/if}}
+  </div>
 </template>
 

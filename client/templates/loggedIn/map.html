@@ -23,5 +23,9 @@
     <div class="row map-container">
       {{> googleMap name="map" options=mapOptions}}
     </div>
+    <button data-target="modal1" class="btn modal-trigger">Modal</button>
+    {{> modal options=modalOptions}}
+    {{> modalMarker marker=selectedMarker}}
+    
   </div>
 </template>
